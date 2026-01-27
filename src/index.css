@@ -1,0 +1,457 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 352 18% 16%; /* #312229 - dark reddish-brown */
+    --foreground: 35 32% 76%; /* #d5c5ae - cream */
+
+    --card: 349 68% 20%; /* #54101d - deep burgundy */
+    --card-foreground: 35 32% 76%; /* #d5c5ae - cream */
+
+    --popover: 352 18% 16%; /* #312229 */
+    --popover-foreground: 35 32% 76%; /* #d5c5ae */
+
+    --primary: 33 42% 51%; /* #b18653 - warm golden brown */
+    --primary-foreground: 352 18% 16%; /* #312229 */
+
+    --secondary: 213 22% 36%; /* #47596f - slate blue-gray */
+    --secondary-foreground: 35 32% 76%; /* #d5c5ae */
+
+    --muted: 349 68% 20%; /* #54101d */
+    --muted-foreground: 35 32% 66%;
+
+    --accent: 33 42% 51%; /* #b18653 */
+    --accent-foreground: 352 18% 16%; /* #312229 */
+
+    --destructive: 349 68% 30%;
+    --destructive-foreground: 35 32% 76%;
+
+    --border: 33 32% 35%;
+    --input: 352 18% 22%;
+    --ring: 33 42% 51%; /* #b18653 */
+
+    --radius: 1rem;
+
+    /* Custom memory theme colors */
+    --sepia: 33 42% 51%; /* #b18653 */
+    --sepia-dark: 352 18% 16%; /* #312229 */
+    --sage: 213 22% 36%; /* #47596f */
+    --cream: 35 32% 76%; /* #d5c5ae */
+    --warmth: 33 52% 56%;
+
+    /* Book/Library theme - Cozy wooden tones */
+    --leather: 352 18% 16%; /* #312229 */
+    --leather-light: 349 68% 20%; /* #54101d */
+    --parchment: 35 32% 76%; /* #d5c5ae */
+    --parchment-dark: 35 25% 65%;
+    --gold: 33 42% 51%; /* #b18653 */
+    --book-spine: 349 68% 20%; /* #54101d */
+
+    /* Wood textures for library */
+    --wood-dark: 25 35% 22%;
+    --wood-medium: 28 40% 32%;
+    --wood-light: 30 38% 42%;
+    --wood-grain: 27 32% 28%;
+
+    /* Soft collection colors */
+    --collection-blue: 210 35% 55%;
+    --collection-green: 145 30% 45%;
+    --collection-amber: 35 55% 50%;
+    --collection-rose: 350 40% 55%;
+    --collection-purple: 270 30% 50%;
+    --collection-teal: 175 35% 45%;
+
+    /* Gradients */
+    --gradient-warmth: linear-gradient(135deg, hsl(35 32% 76%) 0%, hsl(33 42% 51%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(35 32% 80%) 0%, hsl(35 32% 72%) 100%);
+    --gradient-leather: linear-gradient(135deg, hsl(352 18% 16%) 0%, hsl(349 68% 20%) 100%);
+    --gradient-parchment: linear-gradient(180deg, hsl(35 32% 78%) 0%, hsl(35 32% 70%) 100%);
+    --gradient-wood: linear-gradient(180deg, hsl(28 40% 35%) 0%, hsl(25 35% 22%) 100%);
+    --gradient-shelf: linear-gradient(180deg, hsl(30 38% 45%) 0%, hsl(25 35% 25%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsla(352, 18%, 10%, 0.2);
+    --shadow-warm: 0 8px 30px hsla(33, 42%, 35%, 0.25);
+    --shadow-book: 0 10px 40px hsla(352, 18%, 10%, 0.4);
+    --shadow-shelf: 0 6px 20px hsla(25, 35%, 15%, 0.5);
+    --shadow-inset: inset 0 2px 8px hsla(25, 35%, 10%, 0.3);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 352 18% 16%;
+    --sidebar-foreground: 35 32% 76%;
+    --sidebar-primary: 33 42% 51%;
+    --sidebar-primary-foreground: 352 18% 16%;
+    --sidebar-accent: 349 68% 20%;
+    --sidebar-accent-foreground: 35 32% 76%;
+    --sidebar-border: 33 32% 30%;
+    --sidebar-ring: 33 42% 51%;
+  }
+
+  .dark {
+    --background: 352 20% 12%;
+    --foreground: 35 32% 80%;
+
+    --card: 349 60% 15%;
+    --card-foreground: 35 32% 80%;
+
+    --popover: 352 20% 14%;
+    --popover-foreground: 35 32% 80%;
+
+    --primary: 33 45% 55%;
+    --primary-foreground: 352 20% 12%;
+
+    --secondary: 213 25% 30%;
+    --secondary-foreground: 35 32% 80%;
+
+    --muted: 349 50% 18%;
+    --muted-foreground: 35 25% 60%;
+
+    --accent: 33 45% 50%;
+    --accent-foreground: 352 20% 12%;
+
+    --destructive: 349 68% 35%;
+    --destructive-foreground: 35 32% 80%;
+
+    --border: 33 25% 28%;
+    --input: 352 20% 18%;
+    --ring: 33 45% 55%;
+
+    --sepia: 33 45% 45%;
+    --sepia-dark: 352 20% 12%;
+    --sage: 213 25% 30%;
+    --cream: 35 25% 22%;
+    --warmth: 33 55% 50%;
+
+    /* Book/Library theme dark */
+    --leather: 352 20% 12%;
+    --leather-light: 349 60% 18%;
+    --parchment: 35 25% 25%;
+    --parchment-dark: 35 20% 18%;
+    --gold: 33 50% 50%;
+    --book-spine: 349 60% 18%;
+
+    --sidebar-background: 352 20% 12%;
+    --sidebar-foreground: 35 32% 80%;
+    --sidebar-primary: 33 45% 55%;
+    --sidebar-primary-foreground: 352 20% 12%;
+    --sidebar-accent: 349 60% 18%;
+    --sidebar-accent-foreground: 35 32% 80%;
+    --sidebar-border: 33 25% 25%;
+    --sidebar-ring: 33 45% 55%;
+  }
+
+  /* High Contrast Mode - White background with black text (WCAG compliant) */
+  .high-contrast {
+    --background: 0 0% 100%; /* Pure white */
+    --foreground: 0 0% 0%; /* Pure black #000000 */
+
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 38 100% 42%; /* Rich amber - better contrast */
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 0%;
+
+    --accent: 38 100% 42%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 100% 40%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 0%; /* Black borders */
+    --input: 0 0% 100%;
+    --ring: 0 0% 0%;
+
+    /* Memory theme high contrast - all text colors black */
+    --sepia: 38 100% 42%;
+    --sepia-dark: 0 0% 0%;
+    --sage: 0 0% 0%;
+    --cream: 0 0% 100%;
+    --warmth: 38 100% 50%;
+
+    /* Book/Library theme high contrast - parchment is BLACK for text */
+    --leather: 0 0% 100%; /* White background */
+    --leather-light: 0 0% 98%;
+    --parchment: 0 0% 0%; /* BLACK text */
+    --parchment-dark: 0 0% 20%;
+    --gold: 38 100% 42%;
+    --book-spine: 0 0% 0%;
+
+    /* Wood textures high contrast - light grays for backgrounds */
+    --wood-dark: 0 0% 90%;
+    --wood-medium: 0 0% 85%;
+    --wood-light: 0 0% 95%;
+    --wood-grain: 0 0% 88%;
+
+    /* Collection colors high contrast - darker for visibility */
+    --collection-blue: 210 100% 35%;
+    --collection-green: 140 100% 28%;
+    --collection-amber: 38 100% 42%;
+    --collection-rose: 350 100% 40%;
+    --collection-purple: 270 100% 40%;
+    --collection-teal: 175 100% 28%;
+
+    /* Gradients high contrast - subtle gray gradients */
+    --gradient-warmth: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 95%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 96%) 100%);
+    --gradient-leather: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 96%) 100%);
+    --gradient-parchment: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 96%) 100%);
+    --gradient-wood: linear-gradient(180deg, hsl(0 0% 96%) 0%, hsl(0 0% 90%) 100%);
+    --gradient-shelf: linear-gradient(180deg, hsl(0 0% 94%) 0%, hsl(0 0% 88%) 100%);
+
+    /* Shadows high contrast - darker for white background */
+    --shadow-soft: 0 4px 20px hsla(0, 0%, 0%, 0.2);
+    --shadow-warm: 0 8px 30px hsla(0, 0%, 0%, 0.25);
+    --shadow-book: 0 10px 40px hsla(0, 0%, 0%, 0.3);
+    --shadow-shelf: 0 6px 20px hsla(0, 0%, 0%, 0.2);
+    --shadow-inset: inset 0 2px 8px hsla(0, 0%, 0%, 0.15);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 38 100% 42%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 95%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 0%;
+    --sidebar-ring: 0 0% 0%;
+  }
+}
+
+/* High Contrast Mode - Force all text to black and add borders */
+.high-contrast {
+  /* Force all text elements to solid black */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  label,
+  li,
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    color: #000000 !important;
+  }
+
+  /* Exceptions for buttons with backgrounds */
+  button.bg-primary,
+  button.bg-secondary,
+  button.bg-destructive,
+  [class*="bg-primary"] button,
+  [class*="bg-secondary"] button,
+  [class*="bg-destructive"] button {
+    color: #000000 !important;
+  }
+
+  /* Add 1.5px black border to cards, dialogs, buttons for clarity */
+  .card,
+  [class*="DialogContent"],
+  [class*="bg-card"],
+  [class*="bg-leather"],
+  [class*="bg-wood"],
+  [class*="rounded-lg"],
+  [class*="rounded-xl"],
+  [class*="rounded-2xl"],
+  [class*="rounded-3xl"],
+  button
+    :not([class*="ghost"])
+    :not([aria-label="Reminisce - Go to home"])
+    :not([class*="flex"][class*="flex-col"])
+    :not([class*="text-parchment"]) {
+    border: 1.5px solid #000000 !important;
+  }
+
+  /* Ghost buttons get subtle borders on hover */
+  button[class*="ghost"]:hover {
+    border: 1.5px solid #000000 !important;
+  }
+
+  /* Input fields get black borders */
+  input,
+  textarea,
+  select {
+    border: 1.5px solid #000000 !important;
+    background-color: #ffffff !important;
+  }
+
+  /* Ensure proper contrast for muted text */
+  .text-muted-foreground,
+  [class*="text-parchment/"],
+  [class*="text-foreground/"] {
+    color: #000000 !important;
+    opacity: 1 !important;
+  }
+}
+
+/* === High Contrast: Customize button only === */
+
+/* Hidden by default */
+.high-contrast [data-customize-button] {
+  opacity: 0 !important;
+  pointer-events: none;
+  border: none !important;
+}
+
+/* Show on category hover */
+.high-contrast .group:hover [data-customize-button],
+.high-contrast .group:focus-within [data-customize-button] {
+  opacity: 1 !important;
+  pointer-events: auto;
+  border: 1.5px solid #000 !important;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Text Size System */
+  .text-size-small {
+    --text-base: 0.875rem;
+    --text-lg: 1rem;
+    --text-xl: 1.125rem;
+    --text-2xl: 1.25rem;
+    --text-3xl: 1.5rem;
+    --text-4xl: 1.875rem;
+  }
+
+  .text-size-medium {
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+  }
+
+  .text-size-large {
+    --text-base: 1.125rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.5rem;
+    --text-2xl: 1.875rem;
+    --text-3xl: 2.25rem;
+    --text-4xl: 3rem;
+  }
+}
+
+/* Remove slideshow gradient completely in high contrast mode */
+body.high-contrast [class*="bg-gradient"] {
+  background-image: none !important;
+}
+
+/* Text Size System - Outside @layer for highest specificity */
+.text-size-small p,
+.text-size-small span:not(.lucide):not([class*="sr-only"]),
+.text-size-small label,
+.text-size-small li {
+  font-size: var(--text-base) !important;
+}
+
+.text-size-small h1 {
+  font-size: var(--text-4xl) !important;
+}
+
+.text-size-small h2 {
+  font-size: var(--text-3xl) !important;
+}
+
+.text-size-small h3 {
+  font-size: var(--text-2xl) !important;
+}
+
+.text-size-medium p,
+.text-size-medium span:not(.lucide):not([class*="sr-only"]),
+.text-size-medium label,
+.text-size-medium li {
+  font-size: var(--text-base) !important;
+}
+
+.text-size-medium h1 {
+  font-size: var(--text-4xl) !important;
+}
+
+.text-size-medium h2 {
+  font-size: var(--text-3xl) !important;
+}
+
+.text-size-medium h3 {
+  font-size: var(--text-2xl) !important;
+}
+
+.text-size-large p,
+.text-size-large span:not(.lucide):not([class*="sr-only"]),
+.text-size-large label,
+.text-size-large li {
+  font-size: var(--text-base) !important;
+}
+
+.text-size-large h1 {
+  font-size: var(--text-4xl) !important;
+}
+
+.text-size-large h2 {
+  font-size: var(--text-3xl) !important;
+}
+
+.text-size-large h3 {
+  font-size: var(--text-2xl) !important;
+}
+
+/* Button text sizes */
+.text-size-small button {
+  font-size: var(--text-base) !important;
+}
+
+.text-size-medium button {
+  font-size: var(--text-lg) !important;
+}
+
+.text-size-large button {
+  font-size: var(--text-xl) !important;
+}
+
+/* Input/textarea text sizes */
+.text-size-small input,
+.text-size-small textarea {
+  font-size: var(--text-base) !important;
+}
+
+.text-size-medium input,
+.text-size-medium textarea {
+  font-size: var(--text-lg) !important;
+}
+
+.text-size-large input,
+.text-size-large textarea {
+  font-size: var(--text-xl) !important;
+}
+
+/* Book opening animation */
+.group:hover .group-hover\:rotate-y-\[-25deg\] {
+  transform: rotateY(-25deg);
+}
