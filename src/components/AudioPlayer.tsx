@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, Pause } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, formatTime } from "@/lib/utils";
 
 interface AudioPlayerProps {
   audioUrl: string;
@@ -76,12 +76,7 @@ const AudioPlayer = ({ audioUrl, className }: AudioPlayerProps) => {
     setProgress(percentage * 100);
   };
 
-  const formatTime = (seconds: number) => {
-    if (isNaN(seconds) || !isFinite(seconds)) return "0:00";
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, "0")}`;
-  };
+  // Using formatTime from utils
 
   return (
     <div className={cn("flex items-center gap-3", className)}>

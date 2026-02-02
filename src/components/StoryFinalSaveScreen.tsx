@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Plus, Check, X, Sparkles, Loader2, Trash2 } from "lucide-react";
 import { useAI } from "@/hooks/useAI";
 import { useTranslation } from "@/hooks/useTranslation";
+import { TEXT_SIZE_CLASSES } from "@/lib/utils";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -46,11 +47,7 @@ const StoryFinalSaveScreen = ({
   const { generateTitle } = useAI();
   const { t } = useTranslation();
 
-  const textSizeClasses = {
-    small: "text-base",
-    medium: "text-lg",
-    large: "text-xl",
-  };
+  // Using TEXT_SIZE_CLASSES from utils
 
   // Auto-generate title on mount if transcript exists
   useEffect(() => {
@@ -155,7 +152,7 @@ const StoryFinalSaveScreen = ({
               <Input
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className={`flex-1 ${textSizeClasses[textSize]} border-2 border-primary`}
+                className={`flex-1 ${TEXT_SIZE_CLASSES[textSize]} border-2 border-primary`}
                 autoFocus
                 onBlur={() => setIsEditingTitle(false)}
                 onKeyDown={(e) => e.key === "Enter" && setIsEditingTitle(false)}
@@ -171,7 +168,7 @@ const StoryFinalSaveScreen = ({
           ) : (
             <div
               onClick={() => setIsEditingTitle(true)}
-              className={`${textSizeClasses[textSize]} font-medium text-foreground cursor-pointer p-3 rounded-lg border-2 border-dashed border-muted-foreground/30 hover:border-primary hover:bg-muted/50 transition-all group`}
+              className={`${TEXT_SIZE_CLASSES[textSize]} font-medium text-foreground cursor-pointer p-3 rounded-lg border-2 border-dashed border-muted-foreground/30 hover:border-primary hover:bg-muted/50 transition-all group`}
             >
               <div className="flex items-center justify-between">
                 <span>{isGeneratingTitle ? t('storyFinalSave', 'generating') : (title || t('storyFinalSave', 'untitledMemory'))}</span>
@@ -235,7 +232,7 @@ const StoryFinalSaveScreen = ({
             {t('storyFinalSave', 'memoryPreview')}
           </label>
           <div className="bg-card rounded-xl p-4 border border-border max-h-[300px] overflow-y-auto">
-            <p className={`${textSizeClasses[textSize]} text-foreground/80 whitespace-pre-wrap`}>
+            <p className={`${TEXT_SIZE_CLASSES[textSize]} text-foreground/80 whitespace-pre-wrap`}>
               {transcript || t('storyFinalSave', 'noContentRecorded')}
             </p>
           </div>

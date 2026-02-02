@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { MessageSquare, Loader2 } from "lucide-react";
 import AudioPlayer from "./AudioPlayer";
 import TextToSpeechButton from "./TextToSpeechButton";
+import { getInitials } from "@/lib/utils";
 
 interface Contribution {
   id: string;
@@ -76,10 +77,7 @@ const MemoryContributions = ({ memoryId, circleId }: MemoryContributionsProps) =
     fetchContributions();
   }, [memoryId, circleId]);
 
-  const getInitials = (name: string | null) => {
-    if (!name) return "??";
-    return name.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
-  };
+  // Using getInitials from utils
 
   if (loading) {
     return (

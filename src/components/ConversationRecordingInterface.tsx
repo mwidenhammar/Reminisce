@@ -7,6 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { uploadAudioRecording } from "@/lib/audioStorage";
 import { supabase } from "@/integrations/supabase/client";
 import { useTranslation } from "@/hooks/useTranslation";
+import { TEXT_SIZE_CLASSES } from "@/lib/utils";
 
 interface ConversationRecordingInterfaceProps {
   onDone: (transcript: string, audioUrl?: string | null) => void;
@@ -63,6 +64,7 @@ const ConversationRecordingInterface = ({
     },
   });
 
+  // Custom text sizes for conversation (larger than standard)
   const textSizeClasses = {
     small: "text-lg",
     medium: "text-xl",
