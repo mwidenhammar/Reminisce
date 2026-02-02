@@ -12,6 +12,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { getInitials } from "@/lib/utils";
 
 interface CircleMember {
   user_id: string;
@@ -170,10 +171,7 @@ const SendVoicePrompt = ({
     }
   };
 
-  const getInitials = (name: string | null | undefined) => {
-    if (!name) return "??";
-    return name.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
-  };
+  // Using getInitials from utils
 
   // Filter out current user from members
   const otherMembers = members.filter(m => m.user_id !== currentUserId);

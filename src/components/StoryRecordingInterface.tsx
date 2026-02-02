@@ -6,6 +6,7 @@ import { uploadAudioRecording } from "@/lib/audioStorage";
 import { supabase } from "@/integrations/supabase/client";
 import { useSpeechRecognition } from "@/hooks/useSpeechRecognition";
 import { useTranslation } from "@/hooks/useTranslation";
+import { TEXT_SIZE_CLASSES, formatTime } from "@/lib/utils";
 
 interface StoryRecordingInterfaceProps {
   onDone: (transcript: string, audioUrl?: string | null) => void;
@@ -49,11 +50,7 @@ const StoryRecordingInterface = ({
     },
   });
 
-  const textSizeClasses = {
-    small: "text-base",
-    medium: "text-lg",
-    large: "text-xl",
-  };
+  // Using TEXT_SIZE_CLASSES from utils
 
   useEffect(() => {
     return () => {
@@ -202,11 +199,7 @@ const StoryRecordingInterface = ({
     }
   };
 
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
-  };
+  // Using formatTime from utils
 
   const getStatusText = () => {
     if (isUploading) return t('storyRecording', 'saving');
@@ -251,10 +244,10 @@ const StoryRecordingInterface = ({
           </div>
         )}
 
-        <h2 className={`font-bold text-foreground mb-2 text-center ${textSizeClasses[textSize]}`}>
+        <h2 className={`font-bold text-foreground mb-2 text-center ${TEXT_SIZE_CLASSES[textSize]}`}>
           {getStatusText()}
         </h2>
-        <p className={`text-muted-foreground mb-4 text-center ${textSizeClasses[textSize]}`}>
+        <p className={`text-muted-foreground mb-4 text-center ${TEXT_SIZE_CLASSES[textSize]}`}>
           {getInstructionText()}
         </p>
 

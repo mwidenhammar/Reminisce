@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Plus, Check, X, Sparkles, Loader2, Trash2 } from "lucide-react";
 import { useAI } from "@/hooks/useAI";
 import { useTranslation } from "@/hooks/useTranslation";
+import { TEXT_SIZE_CLASSES } from "@/lib/utils";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -48,7 +49,7 @@ const FinalSaveScreen = ({
   const { generateTitle } = useAI();
   const { t } = useTranslation();
 
-  const textSizeClass = textSize === "small" ? "text-base" : textSize === "large" ? "text-xl" : "text-lg";
+  const textSizeClass = TEXT_SIZE_CLASSES[textSize];
 
   // Auto-generate title on mount if transcript exists
   useEffect(() => {

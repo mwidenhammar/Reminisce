@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useTranslation } from "@/hooks/useTranslation";
+import { TEXT_SIZE_CLASSES } from "@/lib/utils";
 
 interface WritingInterfaceProps {
   photoUrl: string | null;
@@ -12,8 +13,9 @@ interface WritingInterfaceProps {
 const WritingInterface = ({ photoUrl, onDone, textSize }: WritingInterfaceProps) => {
   const [text, setText] = useState("");
   const { t } = useTranslation();
+  const textSizeClass = TEXT_SIZE_CLASSES[textSize];
 
-  const textSizeClass = textSize === "small" ? "text-base" : textSize === "large" ? "text-xl" : "text-lg";
+  // Using TEXT_SIZE_CLASSES from utils
 
   const handleDone = () => {
     if (text.trim()) {

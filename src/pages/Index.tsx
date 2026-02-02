@@ -23,7 +23,6 @@ import ConversationWritingInterface from "@/components/ConversationWritingInterf
 import StoryFinalSaveScreen from "@/components/StoryFinalSaveScreen";
 import { Auth } from "@/components/Auth";
 import SharedMemoriesView from "@/components/SharedMemoriesView";
-import VoicePromptsView from "@/components/VoicePromptsView";
 
 import QuickTip from "@/components/QuickTip";
 import { supabase } from "@/integrations/supabase/client";
@@ -61,8 +60,7 @@ type ActiveView =
   | "add-capture-follow-up-prompt"
   | "add-capture-follow-up-questions"
   | "photo-browser"
-  | "shared-memories"
-  | "voice-prompts";
+  | "shared-memories";
 
 type CaptureFlowType = "lets-talk" | "tell-story" | null;
 
@@ -1314,17 +1312,6 @@ const IndexContent = () => {
           }}
           initialMainTab={sharedMemoriesInitialTab}
           focusedPromptId={focusedPromptId}
-        />
-      )}
-
-      {/* Voice Prompts View */}
-      {activeView === "voice-prompts" && (
-        <VoicePromptsView 
-          onBack={() => {
-            setFocusedPromptId(null);
-            setActiveView("home");
-          }} 
-          initialPromptId={focusedPromptId || undefined}
         />
       )}
 

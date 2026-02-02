@@ -9,6 +9,7 @@ import {
 import { formatDistanceToNow } from "date-fns";
 import AudioPlayer from "./AudioPlayer";
 import { useToast } from "@/hooks/use-toast";
+import { getInitials, getCleanTitle } from "@/lib/utils";
 import {
   Collapsible,
   CollapsibleContent,
@@ -243,14 +244,7 @@ const InboxView = ({ onNavigateToCircle, focusedPromptId }: InboxViewProps) => {
     }
   };
 
-  const getInitials = (name: string | null) => {
-    if (!name) return "?";
-    return name.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
-  };
-
-  const getCleanTitle = (title: string): string => {
-    return title.replace(/\s*\[[^\]]+\]$/, "");
-  };
+  // Using getInitials and getCleanTitle from utils
 
   if (loading) {
     return (

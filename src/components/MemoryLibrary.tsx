@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { Button } from "@/components/ui/button";
+import { getCleanTitle } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import {
   ArrowLeft,
@@ -380,9 +381,7 @@ const MemoryLibrary = ({ onBack, onAddNewCapture, focusedMemoryId, onOpenSharedM
     return match ? match[1] : "Memories";
   };
 
-  const getCleanTitle = (title: string): string => {
-    return title.replace(/\s*\[[^\]]+\]$/, "");
-  };
+  // Using getCleanTitle from utils
 
   // Filter memories based on search query
   const filteredMemories = useMemo(() => {

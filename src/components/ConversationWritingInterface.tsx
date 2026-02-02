@@ -4,6 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ChevronRight, Loader2, Home } from "lucide-react";
 import { useAI } from "@/hooks/useAI";
 import { useTranslation } from "@/hooks/useTranslation";
+import { TEXT_SIZE_CLASSES } from "@/lib/utils";
 
 interface ConversationWritingInterfaceProps {
   onDone: (transcript: string) => void;
@@ -34,11 +35,7 @@ const ConversationWritingInterface = ({
   const { generateConversationQuestion } = useAI();
   const { t } = useTranslation();
 
-  const textSizeClasses = {
-    small: "text-base",
-    medium: "text-lg",
-    large: "text-xl",
-  };
+  // Using TEXT_SIZE_CLASSES from utils for textarea
 
   const questionTextClasses = {
     small: "text-lg",
@@ -162,7 +159,7 @@ const ConversationWritingInterface = ({
               value={currentAnswer}
               onChange={(e) => setCurrentAnswer(e.target.value)}
               placeholder={t('conversation', 'typeAnswerHere')}
-              className={`w-full h-full min-h-[250px] resize-none ${textSizeClasses[textSize]} bg-card border-2 border-border focus:border-primary`}
+              className={`w-full h-full min-h-[250px] resize-none ${TEXT_SIZE_CLASSES[textSize]} bg-card border-2 border-border focus:border-primary`}
               disabled={isLoadingQuestion}
             />
 

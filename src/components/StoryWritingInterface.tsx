@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import TopNavBar from "./TopNavBar";
 import { useTranslation } from "@/hooks/useTranslation";
+import { TEXT_SIZE_CLASSES } from "@/lib/utils";
 
 interface StoryWritingInterfaceProps {
   onDone: (text: string) => void;
@@ -22,11 +23,7 @@ const StoryWritingInterface = ({
   const [text, setText] = useState("");
   const { t } = useTranslation();
 
-  const textSizeClasses = {
-    small: "text-base",
-    medium: "text-lg",
-    large: "text-xl",
-  };
+  // Using TEXT_SIZE_CLASSES from utils
 
   const handleDone = () => {
     if (text.trim()) {
@@ -50,7 +47,7 @@ const StoryWritingInterface = ({
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder={t('storyWriting', 'placeholder')}
-            className={`w-full flex-1 min-h-[300px] resize-none ${textSizeClasses[textSize]} bg-card border-2 border-border focus:border-primary`}
+            className={`w-full flex-1 min-h-[300px] resize-none ${TEXT_SIZE_CLASSES[textSize]} bg-card border-2 border-border focus:border-primary`}
           />
           <div className="flex justify-center mt-4">
             <Button

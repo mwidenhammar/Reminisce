@@ -39,6 +39,13 @@ const RecordingInterface = ({ photoUrl, onDone, textSize }: RecordingInterfacePr
   });
 
   const textSizeClass = textSize === "small" ? "text-base" : textSize === "large" ? "text-xl" : "text-lg";
+  
+  // Using formatTime from utils
+  const formatTimeDisplay = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+  };
 
   // Timer effect
   useEffect(() => {
@@ -132,11 +139,6 @@ const RecordingInterface = ({ photoUrl, onDone, textSize }: RecordingInterfacePr
     }
   };
 
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
-  };
 
   if (!isSupported) {
     return (
@@ -189,7 +191,7 @@ const RecordingInterface = ({ photoUrl, onDone, textSize }: RecordingInterfacePr
             <div className="mt-4 flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-destructive animate-pulse" />
               <span className="text-2xl font-mono text-foreground">
-                {formatTime(recordingTime)}
+                {formatTimeDisplay(recordingTime)}
               </span>
             </div>
           )}
